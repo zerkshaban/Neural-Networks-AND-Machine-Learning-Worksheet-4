@@ -1,3 +1,7 @@
+# Neural-Networks-AND-Machine-Learning-Worksheet-4
+7COM1033
+Semester B 2019/20
+24 Feb 2020
 Neural Networks & Machine Learning: Worksheet 4
 Aim
 This worksheet introduces supervised learning. As a result of completing the tasks below, you will
