@@ -52,5 +52,17 @@ preditedOutputs = [1 1 0 1 1 0 1 1];
 
 confusion_reponse = confusionMatrix(trueOutputs, preditedOutputs);
 
+% Part#4 Accuracy.
+accuracy_of_confusion = accuracy(trueOutputs, preditedOutputs);
+
+% Part#5 Test Your Functions for Characterising Performance.
+yTrue = [1, 0, 0, 1, 0, 1, 0, 1, 1, 1];
+yPredited = [1, 0, 1, 1, 1, 1, 0, 1, 1, 0];
+acc_confusion = accuracy(yPredited, yTrue);
+
+% Part#6 Training and Test Sets.
+partitionData = partitionData(size(tr_in),tr_in,tr_targets);
+
+
 
 
