@@ -61,7 +61,40 @@ yPredited = [1, 0, 1, 1, 1, 1, 0, 1, 1, 0];
 acc_confusion = accuracy(yPredited, yTrue);
 
 % Part#6 Training and Test Sets.
-partitionData = partitionData(size(tr_in),tr_in,tr_targets);
+tr_in_data = [0 0;
+              2 2;
+              4 0;
+              3 3];
+tr_targets_data = [1 0;
+                   0 1;
+                   1 0;
+                   0 1];
+[trainIn, trainOut, testIn, testOut] = crossValidation(size(tr_in_data), sparrows, one_hot_matrix);
+
+% Part#7 Performance Assessments
+sparrows_knn_model_arr = [];
+for i = 1 : 15
+    if mode(i) ~= 0
+        sparrows_knn_model_arr(end+1) = knn(5, 5, i, trainIn, trainOut);
+    end
+end
+for i = 1 : 15
+    if mode(i) ~= 0
+        [YS, LS] = knnfwd(sparrows_knn_model_arr(i), trainOut(i));
+    end
+end
+
+for i = 1 : 15
+    if mode(i) ~= 0
+        sparrows_knn_model_arr(end+1) = knn(5, 5, i, testIn, testOut);
+    end
+end
+for i = 1 : 15
+    if mode(i) ~= 0
+        [YS, LS] = knnfwd(sparrows_knn_model_arr(i), testOut(i));
+    end
+end
+
 
 
 
